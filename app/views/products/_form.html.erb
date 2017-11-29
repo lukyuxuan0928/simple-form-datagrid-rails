@@ -1,0 +1,49 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <div class="card" style="margin:20px; border-color:#333">
+    <div class="card-header" style="background-color:#333;color:#fff; border-color:#333">
+      Info
+    </div>
+
+    <div class="card-block" style="padding:20px">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="border-color:#333">
+            <div class="card-header" style="background-color:#fff; border-color:#333">
+              Primary
+            </div>
+
+            <div class="card-block" style="padding:20px">
+              <div class="form-inputs">
+                <%= f.input :name, required: true, placeholder: "Write your product name" %>
+                <%= f.input :category, collection: ['Cloth', 'Food', 'Electronic']%>
+                <%= f.input :price, class: "form-control" %>
+                <%= f.input :stock, label: 'Stock quantity', input_html: { value: '10'}%>
+                <%= f.input :visible, inline_label: 'Visible' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card" style="border-color:#333">
+            <div class="card-header" style="background-color:#fff; border-color:#333">
+              Optional
+            </div>
+
+            <div class="card-block" style="padding:20px">
+              <div class="form-inputs">
+                <%= f.input :description, hint: "Be short" %>
+                <%= f.input :color, collection: ['red', 'green', 'white', 'black'] %>
+                <%= f.input :expire_at %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="form-actions" style="text-align:right; margin:5px">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>
